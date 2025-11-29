@@ -1,0 +1,78 @@
+import ActivityCard from "./ActivityCard";
+import IconSvg from "./IconSvg";
+import ArrowRightIcon from "@/assets/arrow-right.svg";
+
+const DUMMY_ACTIVITIES = [
+    {
+        id: 1,
+        image: "/assets/images/concert.png",
+        title: "คอนเสิร์ตมันเล็กมา",
+        date: "24/11/2024",
+        hashtag: "#ดนตรี",
+        location: "เขาเขียว",
+        attendees: "2.5K",
+    },
+    {
+        id: 2,
+        image: "/assets/images/running.png",
+        title: "วิ่งเพื่อใคร",
+        date: "24/11/2024",
+        hashtag: "#กีฬา",
+        location: "สวนหลวง",
+        attendees: "2.5K",
+    },
+    {
+        id: 3,
+        image: "/assets/images/fireworks.png",
+        title: "วิ่งวิบากกรรม",
+        date: "24/11/2024",
+        hashtag: "#กีฬา",
+        location: "เขาไกร",
+        attendees: "2.5K",
+    },
+    {
+        id: 4,
+        image: "/assets/images/fireworks.png",
+        title: "ชมพลุปีใหม่",
+        date: "31/12/2024",
+        hashtag: "#เทศกาล",
+        location: "ไอคอนสยาม",
+        attendees: "2.5K",
+    },
+];
+
+const PopularActivities = () => {
+    return (
+        <section className="py-12">
+            <div className="flex items-center justify-between mb-8">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                    รายการกิจกรรมยอดนิยม
+                </h2>
+            </div>
+
+            <div className="relative flex items-center">
+                <div className="flex gap-6 overflow-x-auto pb-8 px-1 -mx-1 scrollbar-hide snap-x snap-mandatory w-full">
+                    {DUMMY_ACTIVITIES.map((activity) => (
+                        <div key={activity.id} className="snap-start">
+                            <ActivityCard {...activity} />
+                        </div>
+                    ))}
+
+                    {/* More Activities Button (as the last item in the scroll) */}
+                    <div className="snap-start min-w-[100px] flex items-center justify-center">
+                        <button className="flex flex-col items-center gap-2 group">
+                            <div className="w-14 h-14 rounded-full bg-white dark:bg-gray-800 shadow-lg flex items-center justify-center border border-gray-100 dark:border-gray-700 transition-transform group-hover:scale-110">
+                                <IconSvg Icon={ArrowRightIcon} size={24} className="text-gray-600 dark:text-gray-300" />
+                            </div>
+                            <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                                กิจกรรมเพิ่มเติม
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default PopularActivities;
