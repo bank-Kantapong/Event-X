@@ -6,6 +6,7 @@ import { useTheme } from "next-themes";
 import IconSvg from "@/components/IconSvg";
 import MenuIcon from "@/assets/menu.svg";
 import CloseIcon from "@/assets/close.svg";
+import { motion } from "framer-motion";
 
 enum TABS {
   HOME = "home",
@@ -60,10 +61,19 @@ const Navbar = () => {
               >
                 <a
                   href="#"
-                  className={`${isActive ? "text-primary" : baseColor} relative z-10 text-sm font-bold transition-all duration-300 hover:text-primary`}
+                  className={`${
+                    isActive ? "text-primary" : baseColor
+                  } relative z-10 text-sm font-bold transition-all duration-300 hover:text-primary`}
                 >
                   {tab.name}
                 </a>
+                {isActive && (
+                  <motion.div
+                    layoutId="active-pill"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
               </li>
             );
           })}
@@ -98,14 +108,12 @@ const Navbar = () => {
             {allTabs.map((tab) => {
               const isActive = activeMenu === tab.id;
               return (
-                <li
-                  key={tab.id}
-                  className="flex items-center"
-                  onClick={() => onChangeMenu(tab.id)}
-                >
+                <li key={tab.id} className="flex items-center" onClick={() => onChangeMenu(tab.id)}>
                   <a
                     href="#"
-                    className={`${isActive ? "text-primary" : baseColor} text-lg font-bold transition-all duration-300 hover:text-primary w-full block py-2`}
+                    className={`${
+                      isActive ? "text-primary" : baseColor
+                    } text-lg font-bold transition-all duration-300 hover:text-primary w-full block py-2`}
                   >
                     {tab.name}
                   </a>
