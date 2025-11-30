@@ -14,9 +14,9 @@ interface ActivityCardProps {
 
 const ActivityCard = ({ image, title, date, hashtag, location, attendees }: ActivityCardProps) => {
   return (
-    <div className="min-w-[280px] w-[280px] md:min-w-[320px] md:w-[320px] bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden flex flex-col transition-transform hover:-translate-y-1 duration-300 border border-gray-100 dark:border-gray-700">
+    <div className="min-w-[265px] w-[265px] bg-white dark:bg-gray-800 rounded-2xl shadow-lg flex flex-col transition-transform hover:scale-105 duration-300 border border-gray-100 dark:border-gray-700">
       <div className="relative h-48 w-full">
-        <Image src={image} alt={title} fill className="object-cover" />
+        <Image src={image} alt={title} fill className="object-cover rounded-t-2xl" />
       </div>
       <div className="p-4 flex flex-col flex-1">
         <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1 line-clamp-1">
@@ -40,10 +40,10 @@ const ActivityCard = ({ image, title, date, hashtag, location, attendees }: Acti
         </div>
 
         <div className="grid grid-cols-2 gap-3 mt-auto">
-          <button className="flex items-center justify-center rounded-lg bg-orange-500 px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-orange-600">
+          <button className="cursor-pointer flex items-center justify-center rounded-lg bg-orange-500 px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-orange-600">
             ลงทะเบียน
           </button>
-          <button className="flex items-center justify-center rounded-lg bg-gray-600 px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-gray-700">
+          <button className="cursor-pointer flex items-center justify-center rounded-lg bg-gray-600 px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-gray-700">
             รายละเอียด
           </button>
         </div>
