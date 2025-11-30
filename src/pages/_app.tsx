@@ -12,7 +12,7 @@ const notoSansThai = Noto_Sans_Thai({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="light">
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
       <AuthProvider>
         <main className={`${notoSansThai.className} ${notoSansThai.variable}`}>
           <Component {...pageProps} />

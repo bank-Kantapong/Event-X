@@ -29,7 +29,7 @@ const Home = () => {
         <PopularActivities />
       </main>
 
-      <footer className="py-8 text-center text-sm text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-700 mt-8">
+      <footer className="py-8 text-center text-sm text-black border-t border-black mt-8">
         © 2025 Event X. All rights reserved.
       </footer>
     </ContainerWrapper>

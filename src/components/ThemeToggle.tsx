@@ -8,7 +8,7 @@ const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
   const [isToggle, setIsToggle] = useState(false);
   // console.log('isToggle', isToggle)
-
+  console.log("theme", theme);
   const handleToggle = () => {
     console.log("click");
     setIsToggle((prev) => !prev);

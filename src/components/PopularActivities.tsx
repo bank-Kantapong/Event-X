@@ -48,7 +48,7 @@ const PopularActivities = () => {
   return (
     <section className="py-12">
       <div className="flex items-center justify-between mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">รายการกิจกรรมยอดนิยม</h2>
+        <h2 className="text-2xl font-bold text-black">รายการกิจกรรมยอดนิยม</h2>
       </div>
 
       <div className="relative flex items-center">
