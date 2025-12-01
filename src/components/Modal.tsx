@@ -55,21 +55,12 @@ const Modal = ({ isOpen, onClose, children, title }: ModalProps) => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.2 }}
-            className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-white dark:bg-gray-900 rounded-2xl shadow-2xl flex flex-col"
+            className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-modal-bg rounded-2xl shadow-2xl flex flex-col"
           >
-            <div className="sticky top-0 z-10 flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-gray-800 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md">
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white truncate pr-8">
-                {title}
-              </h3>
-              <button
-                onClick={onClose}
-                className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group"
-              >
-                <IconSvg
-                  Icon={CloseIcon}
-                  size={24}
-                  className="text-gray-500 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white transition-colors"
-                />
+            <div className="sticky top-0 z-10 flex items-center justify-between px-6 py-4 border-b border-modal-border backdrop-blur-md">
+              <h3 className="text-xl font-bold text-black truncate pr-8">{title}</h3>
+              <button onClick={onClose} className="p-2 cursor-pointer">
+                <IconSvg Icon={CloseIcon} size={24} fill="var(--color-black)" />
               </button>
             </div>
             <div className="p-6">{children}</div>

@@ -134,7 +134,7 @@ const ActivityDetailModal = ({
 
         {/* Details */}
         <div className="flex flex-col gap-4">
-          <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-gray-300">
+          <div className="flex flex-wrap items-center gap-4 text-sm text-black">
             <span className="px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 font-medium">
               {activity.hashtag}
             </span>
@@ -154,15 +154,15 @@ const ActivityDetailModal = ({
 
           <div className="prose dark:prose-invert max-w-none">
             <h4 className="text-lg font-bold mb-2">รายละเอียดกิจกรรม</h4>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+            <p className="text-black leading-relaxed">
               {activity.description || "ไม่มีรายละเอียดเพิ่มเติม"}
             </p>
           </div>
 
-          <div className="mt-4 flex justify-end gap-3 border-t border-gray-100 dark:border-gray-800 pt-6">
+          <div className="mt-4 flex justify-end gap-3 border-t border-modal-border pt-6">
             <button
               onClick={onClose}
-              className="px-6 py-2.5 rounded-xl text-gray-600 dark:text-gray-300 font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="cursor-pointer px-6 py-2.5 rounded-xl text-black font-medium"
             >
               ปิด
             </button>
@@ -172,7 +172,7 @@ const ActivityDetailModal = ({
                   onRegister();
                   onClose();
                 }}
-                className="px-6 py-2.5 rounded-xl bg-orange-500 text-white font-bold hover:bg-orange-600 shadow-lg shadow-orange-500/20 transition-all hover:-translate-y-0.5"
+                className="cursor-pointer px-6 py-2.5 rounded-xl bg-orange-500 text-white font-bold shadow-lg"
               >
                 ลงทะเบียนเข้าร่วม
               </button>
@@ -180,7 +180,7 @@ const ActivityDetailModal = ({
             {activity.isRegistered && (
               <button
                 disabled
-                className="px-6 py-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-400 cursor-default border border-gray-200 dark:border-gray-700"
+                className="cursor-pointer px-6 py-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-400 border border-gray-200 dark:border-gray-700"
               >
                 ลงทะเบียนแล้ว
               </button>

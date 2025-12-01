@@ -59,7 +59,7 @@ const ActivityCard = ({
       <div
         className={`${
           isFullWidth ? "w-full" : "w-[265px]"
-        } sm:max-w-[265px] bg-white dark:bg-gray-800 rounded-2xl shadow-lg flex flex-col transition-transform hover:scale-105 duration-300 border border-gray-100 dark:border-gray-700`}
+        } sm:max-w-[265px] bg-activity-bg rounded-2xl shadow-lg flex flex-col transition-transform hover:scale-105 duration-300 border border-activity-border`}
       >
         <div className="relative h-64 md:h-48 w-full">
           <Image

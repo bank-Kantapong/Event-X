@@ -15,6 +15,10 @@
   --color-primary: var(--main-orange);
   --color-yellow: var(--main-yellow);
   --color-black: var(--main-black);
+  --color-activity-bg: var(--main-activity-bg);
+  --color-activity-border: var(--main-activity-border);
+  --color-modal-bg: var(--main-modal-bg);
+  --color-modal-border: var(--main-modal-border);
 }
 
 body {
@@ -30,6 +34,10 @@ body {
   --main-black: #424242;
   --main-yellow: oklch(85.2% 0.199 91.936);
   --main-search: var(--color-gray-700);
+  --main-activity-bg: white;
+  --main-activity-border: var(--color-gray-100);
+  --main-modal-bg: white;
+  --main-modal-border: var(--color-gray-200);
 }
 
 .dark {
@@ -39,4 +47,8 @@ body {
   --main-black: #fff;
   --main-yellow: oklch(85.2% 0.199 91.936);
   --main-search: #424242;
+  --main-activity-bg: var(--color-gray-800);
+  --main-activity-border: var(--color-gray-600);
+  --main-modal-bg: var(--color-gray-800);
+  --main-modal-border: var(--color-gray-700);
 }
