@@ -3,8 +3,6 @@ import ActivityCard from "@/components/ActivityCard";
 import { useRegistrationStore } from "@/store/useRegistrationStore";
 import { imageMap } from "@/utils/imageMap";
 import concertImage from "@/assets/images/concert.png";
-import IconSvg from "@/components/IconSvg";
-import SearchIcon from "@/assets/search.svg";
 
 interface Activity {
   id: number;
@@ -99,47 +97,38 @@ export default function EventListView() {
 
   return (
     <div className="w-full">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">รายการกิจกรรม</h1>
-        <p className="mt-2 text-gray-600 dark:text-gray-400">
-          ค้นหากิจกรรมที่คุณสนใจและเข้าร่วมได้ทันที
-        </p>
+      <div className="flex flex-col md:flex-row justify-between">
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold text-black">รายการกิจกรรม</h1>
+          <p className="mt-2 text-black">ค้นหากิจกรรมที่คุณสนใจและเข้าร่วมได้ทันที</p>
+        </div>
+        <input
+          type="text"
+          placeholder="ค้นหากิจกรรม..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="w-full md:w-1/3 mb-4 md:mb-0 h-10 px-4 py-2 rounded-lg border border-gray-700 bg-search focus:outline-none focus:ring-2 focus:ring-primary"
+        />
       </div>
-
       {/* Search and Filter */}
-      <div className="flex flex-col md:flex-row gap-4 mb-8">
-        <div className="relative flex-1">
-          <IconSvg
-            Icon={SearchIcon}
-            size={20}
-            className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
-          />
-          <input
-            type="text"
-            placeholder="ค้นหากิจกรรม..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-primary"
-          />
-        </div>
-        <div className="flex gap-2 overflow-x-auto pb-2 md:pb-0 no-scrollbar">
-          {hashtags.map((tag) => (
-            <button
-              key={tag}
-              onClick={() => {
-                setSelectedHashtag(tag);
-                setPage(1);
-              }}
-              className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
-                selectedHashtag === tag
-                  ? "bg-primary text-white"
-                  : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
-              }`}
-            >
-              {tag}
-            </button>
-          ))}
-        </div>
+
+      <div className="flex gap-2 overflow-x-auto pb-2 mb-6 md:pb-0 no-scrollbar">
+        {hashtags.map((tag) => (
+          <button
+            key={tag}
+            onClick={() => {
+              setSelectedHashtag(tag);
+              setPage(1);
+            }}
+            className={`cursor-pointer px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
+              selectedHashtag === tag
+                ? "bg-primary text-white"
+                : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+            }`}
+          >
+            {tag}
+          </button>
+        ))}
       </div>
 
       {/* Activities Grid */}
@@ -149,11 +138,14 @@ export default function EventListView() {
         </div>
       ) : activities.length > 0 ? (
         <>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="flex flex-wrap gap-6">
             {activities.map((activity) => (
-              <div key={activity.id} className="flex justify-center">
-                <ActivityCard {...activity} image={imageMap[activity.imageKey] || concertImage} />
-              </div>
+              <ActivityCard
+                key={activity.id}
+                {...activity}
+                image={imageMap[activity.imageKey] || concertImage}
+                isFullWidth
+              />
             ))}
           </div>
 

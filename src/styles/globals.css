@@ -29,6 +29,7 @@ body {
   --main-orange: #ff6f00;
   --main-black: #424242;
   --main-yellow: oklch(85.2% 0.199 91.936);
+  --main-search: var(--color-gray-700);
 }
 
 .dark {
@@ -37,4 +38,5 @@ body {
   --main-orange: #ff6f00;
   --main-black: #fff;
   --main-yellow: oklch(85.2% 0.199 91.936);
+  --main-search: #424242;
 }

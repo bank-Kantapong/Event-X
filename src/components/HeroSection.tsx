@@ -3,11 +3,13 @@ import IconSvg from "./IconSvg";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import React from "react";
 import { useNavigation, TABS } from "@/hooks/useNavigation";
+import { useNotification } from "@/context/NotificationContext";
 
 const HeroSection = () => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const { navigateToTab } = useNavigation();
+  const { showNotification } = useNotification();
 
   const mouseX = useSpring(x, { stiffness: 150, damping: 15 });
   const mouseY = useSpring(y, { stiffness: 150, damping: 15 });
@@ -45,7 +47,10 @@ const HeroSection = () => {
           >
             ดูรายการกิจกรรม
           </button>
-          <button className="rounded-lg cursor-pointer w-full sm:w-auto px-8 py-3 bg-gray-700 text-white font-bold hover:bg-gray-800 transition-all shadow-lg">
+          <button
+            onClick={() => showNotification("Coming Soon", "success")}
+            className="rounded-lg cursor-pointer w-full sm:w-auto px-8 py-3 bg-gray-700 text-white font-bold hover:bg-gray-800 transition-all shadow-lg"
+          >
             เริ่มต้นจัดการกิจกรรม
           </button>
         </div>

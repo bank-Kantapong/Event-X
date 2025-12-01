@@ -45,8 +45,8 @@ export default function MyEventsView() {
   return (
     <div className="w-full">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">กิจกรรมของฉัน</h1>
-        <p className="mt-2 text-gray-600 dark:text-gray-400">รายการกิจกรรมที่คุณได้ลงทะเบียนไว้</p>
+        <h1 className="text-3xl font-bold text-black">กิจกรรมของฉัน</h1>
+        <p className="mt-2 text-black">รายการกิจกรรมที่คุณได้ลงทะเบียนไว้</p>
       </div>
 
       {events.length === 0 ? (
@@ -56,7 +56,7 @@ export default function MyEventsView() {
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="flex flex-wrap gap-6">
           {events.map((event) => {
             const activity = event as Activity;
             return (

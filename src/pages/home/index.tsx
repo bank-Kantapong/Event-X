@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import ContainerWrapper from "@/components/ContainerWrapper";
 import Navbar from "@/components/Navbar";
 import Head from "next/head";
@@ -9,15 +8,7 @@ import EventListView from "@/components/views/EventListView";
 import MyEventsView from "@/components/views/MyEventsView";
 
 const Home = () => {
-  const [mounted, setMounted] = useState(false);
   const { activeMenu } = useNavigation();
-
-  useEffect(() => {
-    const timeout = setTimeout(() => setMounted(true), 0);
-    return () => clearTimeout(timeout);
-  }, []);
-
-  if (!mounted) return null;
 
   return (
     <ContainerWrapper>

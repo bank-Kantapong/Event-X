@@ -83,11 +83,7 @@ const PopularActivities = () => {
             onClick={() => navigateToTab(TABS.EVENT_LIST)}
           >
             <div className="w-14 h-14 rounded-full bg-white dark:bg-gray-800 shadow-lg flex items-center justify-center border border-gray-100 dark:border-gray-700 transition-transform group-hover:scale-110">
-              <IconSvg
-                Icon={ArrowRightIcon}
-                size={24}
-                className="text-gray-600 dark:text-gray-300"
-              />
+              <IconSvg Icon={ArrowRightIcon} size={24} fill="var(--color-white)" />
             </div>
             <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
               กิจกรรมเพิ่มเติม
