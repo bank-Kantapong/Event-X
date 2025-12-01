@@ -16,7 +16,13 @@ const ActivityCard = ({ image, title, date, hashtag, location, attendees }: Acti
   return (
     <div className="w-auto md:min-w-[265px] md:w-[265px] bg-white dark:bg-gray-800 rounded-2xl shadow-lg flex flex-col transition-transform hover:scale-105 duration-300 border border-gray-100 dark:border-gray-700">
       <div className="relative h-64 md:h-48 w-full">
-        <Image src={image} alt={title} fill className="object-cover rounded-t-2xl" />
+        <Image
+          src={image}
+          alt={title}
+          fill
+          className="object-cover rounded-t-2xl"
+          sizes="(max-width: 768px) 100vw, 265px"
+        />
       </div>
       <div className="p-4 flex flex-col flex-1">
         <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1 line-clamp-1">

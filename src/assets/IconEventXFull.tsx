@@ -1,4 +1,5 @@
 import { useTheme } from "next-themes";
+import { memo, useEffect, useState } from "react";
 
 interface IconProps {
   width?: number;
@@ -12,6 +13,15 @@ const IconEventXFull: React.FC<IconProps> = ({
   fill = "var(--primary)",
 }) => {
   const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <svg width={width} height={height} viewBox="0 0 112.5 60" />;
+  }
 
   return (
     <svg
@@ -92,4 +102,4 @@ const IconEventXFull: React.FC<IconProps> = ({
   );
 };
 
-export default IconEventXFull;
+export default memo(IconEventXFull);

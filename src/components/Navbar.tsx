@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import IconEventXFull from "@/assets/IconEventXFull";
 import ThemeToggle from "@/components/ThemeToggle";
 import UserMenu from "@/components/UserMenu";
@@ -34,6 +34,11 @@ const Navbar = () => {
   const router = useRouter();
   const { theme } = useTheme();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const activeMenu = (() => {
     if (router.pathname === "/") return TABS.HOME;
@@ -46,7 +51,7 @@ const Navbar = () => {
     setIsMobileMenuOpen(false);
   };
 
-  const baseColor = theme === "dark" ? "text-white" : "text-black";
+  const baseColor = mounted ? (theme === "dark" ? "text-white" : "text-black") : "text-black";
 
   return (
     <nav className="w-full py-4 relative z-50">
@@ -102,7 +107,7 @@ const Navbar = () => {
             <IconSvg
               Icon={isMobileMenuOpen ? CloseIcon : MenuIcon}
               size={28}
-              fill={theme === "dark" ? "white" : "black"}
+              fill={mounted ? (theme === "dark" ? "white" : "black") : "black"}
             />
           </button>
         </div>
