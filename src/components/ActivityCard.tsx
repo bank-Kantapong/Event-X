@@ -4,15 +4,40 @@ import PinIcon from "@/assets/pin.svg";
 import UserIcon from "@/assets/user.svg";
 
 interface ActivityCardProps {
+  id: number;
   image: string | StaticImageData;
   title: string;
   date: string;
   hashtag: string;
   location: string;
   attendees: string;
+  isRegistered?: boolean;
 }
 
-const ActivityCard = ({ image, title, date, hashtag, location, attendees }: ActivityCardProps) => {
+import { useState } from "react";
+import { useRegisterEvent } from "@/hooks/useRegisterEvent";
+
+const ActivityCard = ({
+  id,
+  image,
+  title,
+  date,
+  hashtag,
+  location,
+  attendees,
+  isRegistered = false,
+}: ActivityCardProps) => {
+  const { registerEvent } = useRegisterEvent();
+  const [registered, setRegistered] = useState(isRegistered);
+
+  const handleRegister = async () => {
+    if (registered) return;
+    const success = await registerEvent(id);
+    if (success) {
+      setRegistered(true);
+    }
+  };
+
   return (
     <div className="w-auto md:min-w-[265px] md:w-[265px] bg-white dark:bg-gray-800 rounded-2xl shadow-lg flex flex-col transition-transform hover:scale-105 duration-300 border border-gray-100 dark:border-gray-700">
       <div className="relative h-64 md:h-48 w-full">
@@ -46,10 +71,19 @@ const ActivityCard = ({ image, title, date, hashtag, location, attendees }: Acti
         </div>
 
         <div className="grid grid-cols-2 gap-3 mt-auto">
-          <button className="cursor-pointer flex items-center justify-center rounded-lg bg-orange-500 px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-orange-600">
-            ลงทะเบียน
-          </button>
-          <button className="cursor-pointer flex items-center justify-center rounded-lg bg-gray-600 px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-gray-700">
+          {!registered && (
+            <button
+              onClick={handleRegister}
+              className="cursor-pointer flex items-center justify-center rounded-lg bg-orange-500 px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-orange-600"
+            >
+              ลงทะเบียน
+            </button>
+          )}
+          <button
+            className={`cursor-pointer flex items-center justify-center rounded-lg bg-gray-600 px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-gray-700 ${
+              registered ? "col-span-2" : ""
+            }`}
+          >
             รายละเอียด
           </button>
         </div>

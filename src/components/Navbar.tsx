@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 enum TABS {
   HOME = "home",
   EVENT_LIST = "eventList",
-  DASHBOARD = "dashboard",
+  MY_EVENT = "myEvent",
 }
 
 const allTabs = [
@@ -25,8 +25,8 @@ const allTabs = [
     name: "รายการกิจกรรม",
   },
   {
-    id: TABS.DASHBOARD,
-    name: "แดชบอร์ด",
+    id: TABS.MY_EVENT,
+    name: "กิจกรรมของฉัน",
   },
 ];
 
@@ -43,7 +43,7 @@ const Navbar = () => {
   const activeMenu = (() => {
     if (router.pathname === "/") return TABS.HOME;
     if (router.pathname.startsWith("/events")) return TABS.EVENT_LIST;
-    if (router.pathname.startsWith("/dashboard")) return TABS.DASHBOARD;
+    if (router.pathname.startsWith("/my-event")) return TABS.MY_EVENT;
     return TABS.HOME;
   })();
 
@@ -72,7 +72,15 @@ const Navbar = () => {
                 onClick={() => onChangeMenu()}
               >
                 <a
-                  href={tab.id === TABS.HOME ? "/" : tab.id === TABS.EVENT_LIST ? "/events" : "#"}
+                  href={
+                    tab.id === TABS.HOME
+                      ? "/"
+                      : tab.id === TABS.EVENT_LIST
+                      ? "/events"
+                      : tab.id === TABS.MY_EVENT
+                      ? "/my-event"
+                      : "#"
+                  }
                   className={`${
                     isActive ? "text-primary" : baseColor
                   } relative z-10 text-sm font-bold transition-all duration-300 hover:text-primary`}
@@ -122,7 +130,15 @@ const Navbar = () => {
               return (
                 <li key={tab.id} className="flex items-center" onClick={() => onChangeMenu()}>
                   <a
-                    href={tab.id === TABS.HOME ? "/" : tab.id === TABS.EVENT_LIST ? "/events" : "#"}
+                    href={
+                      tab.id === TABS.HOME
+                        ? "/"
+                        : tab.id === TABS.EVENT_LIST
+                        ? "/events"
+                        : tab.id === TABS.MY_EVENT
+                        ? "/my-event"
+                        : "#"
+                    }
                     className={`${
                       isActive ? "text-primary" : baseColor
                     } text-lg font-bold transition-all duration-300 hover:text-primary w-full block py-2`}

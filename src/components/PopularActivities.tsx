@@ -22,6 +22,7 @@ interface Activity {
   hashtag: string;
   location: string;
   attendees: string;
+  isRegistered?: boolean;
 }
 
 const imageMap: Record<string, StaticImageData> = {

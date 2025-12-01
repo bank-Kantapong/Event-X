@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
+
 import { StaticImageData } from "next/image";
 import ActivityCard from "@/components/ActivityCard";
 import ContainerWrapper from "@/components/ContainerWrapper";
@@ -25,6 +26,7 @@ interface Activity {
   hashtag: string;
   location: string;
   attendees: string;
+  isRegistered?: boolean;
 }
 
 interface PaginationMeta {
