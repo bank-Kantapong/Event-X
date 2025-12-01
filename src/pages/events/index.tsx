@@ -27,6 +27,8 @@ interface Activity {
   location: string;
   attendees: string;
   isRegistered?: boolean;
+  description?: string;
+  gallery?: string[];
 }
 
 interface PaginationMeta {

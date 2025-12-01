@@ -23,6 +23,8 @@ interface Activity {
   location: string;
   attendees: string;
   isRegistered?: boolean;
+  description?: string;
+  gallery?: string[];
 }
 
 const imageMap: Record<string, StaticImageData> = {

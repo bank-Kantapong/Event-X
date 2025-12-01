@@ -11,7 +11,7 @@ const Notification = () => {
           initial={{ opacity: 0, y: -20, x: 20 }}
           animate={{ opacity: 1, y: 0, x: 0 }}
           exit={{ opacity: 0, y: -20, x: 20 }}
-          className="fixed top-24 right-4 z-50 flex items-center gap-3 rounded-lg bg-white dark:bg-gray-800 px-4 py-3 shadow-lg border border-gray-100 dark:border-gray-700 min-w-[300px]"
+          className="fixed top-10 right-4 z-100 flex items-center gap-3 rounded-lg bg-white dark:bg-gray-800 px-4 py-3 shadow-lg border border-gray-100 dark:border-gray-700 min-w-[300px]"
         >
           <div
             className={`flex h-8 w-8 items-center justify-center rounded-full ${

@@ -6,7 +6,9 @@
     "date": "10/12/2024",
     "hashtag": "#ดนตรี",
     "location": "เขาใหญ่",
-    "attendees": "50K"
+    "attendees": "50K",
+    "description": "เทศกาลดนตรีที่ใหญ่ที่สุดในประเทศไทย พบกับศิลปินมากมายทั้งไทยและต่างประเทศ พร้อมบรรยากาศสุดชิลท่ามกลางขุนเขา",
+    "gallery": ["concert", "crowd", "stage"]
   },
   {
     "id": 2,
@@ -15,7 +17,9 @@
     "date": "19/11/2024",
     "hashtag": "#กีฬา",
     "location": "กรุงเทพฯ",
-    "attendees": "30K"
+    "attendees": "30K",
+    "description": "งานวิ่งมาราธอนประเพณีที่ยิ่งใหญ่ที่สุดในกรุงเทพฯ วิ่งผ่าเมืองชมสถาปัตยกรรมยามค่ำคืน",
+    "gallery": ["running", "medal", "startpoint"]
   },
   {
     "id": 3,
@@ -24,7 +28,9 @@
     "date": "24/11/2024",
     "hashtag": "#เทศกาล",
     "location": "พัทยา",
-    "attendees": "100K"
+    "attendees": "100K",
+    "description": "เทศกาลพลุนานาชาติเมืองพัทยา ตระการตากับการแสดงพลุประกอบดนตรีริมชายหาดพัทยา",
+    "gallery": ["fireworks", "beach", "night"]
   },
   {
     "id": 4,
@@ -33,7 +39,9 @@
     "date": "02/12/2024",
     "hashtag": "#ศิลปะ",
     "location": "สวนลุมพินี",
-    "attendees": "2.0K"
+    "attendees": "2.0K",
+    "description": "นิทรรศการศิลปะกลางแจ้ง รวบรวมผลงานจากศิลปินรุ่นใหม่และกิจกรรมเวิร์คช็อปมากมาย",
+    "gallery": ["art", "painting", "sculpture"]
   },
   {
     "id": 5,
@@ -42,7 +50,9 @@
     "date": "15/12/2024",
     "hashtag": "#เทคโนโลยี",
     "location": "Bitec Bangna",
-    "attendees": "5.0K"
+    "attendees": "5.0K",
+    "description": "งานประชุมด้านเทคโนโลยีแห่งปี อัพเดทเทรนด์ AI, Blockchain และนวัตกรรมใหม่ๆ",
+    "gallery": ["tech", "robot", "coding"]
   },
   {
     "id": 6,
@@ -51,7 +61,9 @@
     "date": "20/12/2024",
     "hashtag": "#อาหาร",
     "location": "Central World",
-    "attendees": "10K"
+    "attendees": "10K",
+    "description": "มหกรรมรวมร้าน Food Truck เจ้าดังทั่วไทย อิ่มอร่อยกับเมนูหลากหลายพร้อมดนตรีสด",
+    "gallery": ["food", "truck", "burger"]
   },
   {
     "id": 7,
@@ -60,7 +72,9 @@
     "date": "25/12/2024",
     "hashtag": "#ดนตรี",
     "location": "Saxophone Pub",
-    "attendees": "300"
+    "attendees": "300",
+    "description": "ค่ำคืนแห่งดนตรีแจ๊สและบลูส์ ดื่มด่ำกับเสียงเพลงจากนักดนตรีระดับตำนาน",
+    "gallery": ["concert", "saxophone", "jazz"]
   },
   {
     "id": 8,
@@ -69,7 +83,9 @@
     "date": "01/01/2025",
     "hashtag": "#การกุศล",
     "location": "สวนจตุจักร",
-    "attendees": "1.5K"
+    "attendees": "1.5K",
+    "description": "วิ่งการกุศลเพื่อระดมทุนช่วยเหลือผู้ด้อยโอกาส เริ่มต้นปีใหม่ด้วยการให้",
+    "gallery": ["charity", "run", "donation"]
   },
   {
     "id": 9,
@@ -78,7 +94,9 @@
     "date": "31/12/2024",
     "hashtag": "#เทศกาล",
     "location": "Icon Siam",
-    "attendees": "80K"
+    "attendees": "80K",
+    "description": "นับถอยหลังเข้าสู่ปีใหม่ 2025 กับการแสดงพลุสุดอลังการริมแม่น้ำเจ้าพระยา",
+    "gallery": ["fireworks", "river", "countdown"]
   },
   {
     "id": 10,
@@ -87,7 +105,9 @@
     "date": "14/01/2025",
     "hashtag": "#การเรียนรู้",
     "location": "Ari Creative Space",
-    "attendees": "20"
+    "attendees": "20",
+    "description": "เวิร์คช็อปปั้นดินเผา เรียนรู้พื้นฐานการขึ้นรูปดินและสร้างสรรค์ผลงานชิ้นเดียวในโลก",
+    "gallery": ["learning", "pottery", "clay"]
   },
   {
     "id": 11,
@@ -96,7 +116,9 @@
     "date": "20/01/2025",
     "hashtag": "#กีฬา",
     "location": "เขาใหญ่",
-    "attendees": "2.0K"
+    "attendees": "2.0K",
+    "description": "วิ่งเทรลสัมผัสธรรมชาติเขาใหญ่ ท้าทายความแข็งแกร่งของร่างกายและจิตใจ",
+    "gallery": ["running", "forest", "mountain"]
   },
   {
     "id": 12,
@@ -105,7 +127,9 @@
     "date": "15/02/2025",
     "hashtag": "#วัฒนธรรม",
     "location": "เชียงใหม่",
-    "attendees": "15K"
+    "attendees": "15K",
+    "description": "เทศกาลโคมยี่เป็ง ปล่อยโคมลอยสู่ท้องฟ้าพร้อมขอพรเพื่อความเป็นสิริมงคล",
+    "gallery": ["culture", "lantern", "night"]
   },
   {
     "id": 13,
@@ -114,7 +138,9 @@
     "date": "28/02/2025",
     "hashtag": "#ดนตรี",
     "location": "Thailand Cultural Centre",
-    "attendees": "1.2K"
+    "attendees": "1.2K",
+    "description": "การแสดงดนตรีคลาสสิกโดยวงออร์เคสตรา บรรเลงบทเพลงอมตะของโลก",
+    "gallery": ["concert", "violin", "orchestra"]
   },
   {
     "id": 14,
@@ -123,7 +149,9 @@
     "date": "10/03/2025",
     "hashtag": "#การแข่งขัน",
     "location": "Pattaya",
-    "attendees": "5.0K"
+    "attendees": "5.0K",
+    "description": "การแข่งขันวิ่งวิบากระดับโลก ทดสอบความแข็งแกร่งผ่านด่านอุปสรรคสุดหิน",
+    "gallery": ["competition", "mud", "obstacle"]
   },
   {
     "id": 15,
@@ -132,6 +160,8 @@
     "date": "13/04/2025",
     "hashtag": "#เทศกาล",
     "location": "Silom Road",
-    "attendees": "200K"
+    "attendees": "200K",
+    "description": "เทศกาลสงกรานต์ สาดความสุขให้ชุ่มฉ่ำทั่วถนนสีลม สนุกสนานกับประเพณีไทย",
+    "gallery": ["fireworks", "water", "songkran"]
   }
 ]
