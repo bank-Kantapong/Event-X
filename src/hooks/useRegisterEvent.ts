@@ -1,41 +1,30 @@
-import { useState } from 'react';
+
 import { useRegistrationStore } from '@/store/useRegistrationStore';
 import { useNotification } from '@/context/NotificationContext';
 
 export const useRegisterEvent = () => {
-    const { addRegisteredId } = useRegistrationStore();
+    const { addRegisteredId, registeredIds } = useRegistrationStore();
     const { showNotification } = useNotification();
-    const [registering, setRegistering] = useState(false);
 
-    const registerEvent = async (id: number) => {
-        setRegistering(true);
-        try {
-            const response = await fetch('/api/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ activityId: id }),
-            });
-
-            if (response.ok) {
-                addRegisteredId(id);
-                showNotification('ลงทะเบียนกิจกรรมสำเร็จ', 'success', 5000);
-                return true;
-            } else {
-                showNotification('ไม่สามารถลงทะเบียนได้', 'error');
-                return false;
-            }
-        } catch {
-            showNotification('เกิดข้อผิดพลาดในการเชื่อมต่อ', 'error');
+    const registerEvent = async (activityId: number) => {
+        if (registeredIds.includes(activityId)) {
+            showNotification('คุณลงทะเบียนกิจกรรมนี้ไปแล้ว', 'error');
             return false;
-        } finally {
-            setRegistering(false);
+        }
+
+        try {
+            // Simulate API delay
+            await new Promise(resolve => setTimeout(resolve, 500));
+
+            addRegisteredId(activityId);
+            showNotification('ลงทะเบียนสำเร็จ!', 'success');
+            return true;
+        } catch (error) {
+            console.error('Registration failed:', error);
+            showNotification('เกิดข้อผิดพลาดในการลงทะเบียน', 'error');
+            return false;
         }
     };
 
-    return {
-        registerEvent,
-        registering,
-    };
+    return { registerEvent };
 };

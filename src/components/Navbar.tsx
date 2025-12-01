@@ -7,45 +7,17 @@ import IconSvg from "@/components/IconSvg";
 import MenuIcon from "@/assets/menu.svg";
 import CloseIcon from "@/assets/close.svg";
 import { motion } from "framer-motion";
-import { useRouter } from "next/router";
-
-enum TABS {
-  HOME = "home",
-  EVENT_LIST = "eventList",
-  MY_EVENT = "myEvent",
-}
-
-const allTabs = [
-  {
-    id: TABS.HOME,
-    name: "หน้าแรก",
-  },
-  {
-    id: TABS.EVENT_LIST,
-    name: "รายการกิจกรรม",
-  },
-  {
-    id: TABS.MY_EVENT,
-    name: "กิจกรรมของฉัน",
-  },
-];
+import { useNavigation } from "@/hooks/useNavigation";
 
 const Navbar = () => {
-  const router = useRouter();
   const { theme } = useTheme();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const { activeMenu, navigateToTab, tabs } = useNavigation();
 
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  const activeMenu = (() => {
-    if (router.pathname === "/") return TABS.HOME;
-    if (router.pathname.startsWith("/events")) return TABS.EVENT_LIST;
-    if (router.pathname.startsWith("/my-event")) return TABS.MY_EVENT;
-    return TABS.HOME;
-  })();
 
   const onChangeMenu = () => {
     setIsMobileMenuOpen(false);
@@ -63,30 +35,24 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex items-center gap-8 mx-auto">
-          {allTabs.map((tab) => {
+          {tabs.map((tab) => {
             const isActive = activeMenu === tab.id;
             return (
               <li
                 key={tab.id}
                 className="relative flex items-center justify-center cursor-pointer"
-                onClick={() => onChangeMenu()}
+                onClick={() => {
+                  navigateToTab(tab.id);
+                  onChangeMenu();
+                }}
               >
-                <a
-                  href={
-                    tab.id === TABS.HOME
-                      ? "/"
-                      : tab.id === TABS.EVENT_LIST
-                      ? "/events"
-                      : tab.id === TABS.MY_EVENT
-                      ? "/my-event"
-                      : "#"
-                  }
+                <span
                   className={`${
                     isActive ? "text-primary" : baseColor
                   } relative z-10 text-sm font-bold transition-all duration-300 hover:text-primary`}
                 >
                   {tab.name}
-                </a>
+                </span>
                 {isActive && (
                   <motion.div
                     layoutId="active-pill"
@@ -125,26 +91,24 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="absolute top-full left-0 right-0 md:hidden mt-2 flex flex-col gap-4 p-6 bg-white dark:bg-gray-900 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 animate-in slide-in-from-top-2 fade-in-20">
           <ul className="flex flex-col gap-4">
-            {allTabs.map((tab) => {
+            {tabs.map((tab) => {
               const isActive = activeMenu === tab.id;
               return (
-                <li key={tab.id} className="flex items-center" onClick={() => onChangeMenu()}>
-                  <a
-                    href={
-                      tab.id === TABS.HOME
-                        ? "/"
-                        : tab.id === TABS.EVENT_LIST
-                        ? "/events"
-                        : tab.id === TABS.MY_EVENT
-                        ? "/my-event"
-                        : "#"
-                    }
+                <li
+                  key={tab.id}
+                  className="flex items-center"
+                  onClick={() => {
+                    navigateToTab(tab.id);
+                    onChangeMenu();
+                  }}
+                >
+                  <span
                     className={`${
                       isActive ? "text-primary" : baseColor
-                    } text-lg font-bold transition-all duration-300 hover:text-primary w-full block py-2`}
+                    } text-lg font-bold transition-all duration-300 hover:text-primary w-full block py-2 cursor-pointer`}
                   >
                     {tab.name}
-                  </a>
+                  </span>
                 </li>
               );
             })}

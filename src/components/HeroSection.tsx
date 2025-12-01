@@ -2,10 +2,12 @@ import hero_1 from "@/assets/hero_1.svg";
 import IconSvg from "./IconSvg";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import React from "react";
+import { useNavigation, TABS } from "@/hooks/useNavigation";
 
 const HeroSection = () => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
+  const { navigateToTab } = useNavigation();
 
   const mouseX = useSpring(x, { stiffness: 150, damping: 15 });
   const mouseY = useSpring(y, { stiffness: 150, damping: 15 });
@@ -37,7 +39,10 @@ const HeroSection = () => {
           พร้อมระบบจัดการที่ใช้งานง่ายในที่เดียว
         </p>
         <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
-          <button className="rounded-lg cursor-pointer w-full sm:w-auto px-8 py-3 bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-lg hover:shadow-orange-500/30">
+          <button
+            onClick={() => navigateToTab(TABS.EVENT_LIST)}
+            className="rounded-lg cursor-pointer w-full sm:w-auto px-8 py-3 bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-lg hover:shadow-orange-500/30"
+          >
             ดูรายการกิจกรรม
           </button>
           <button className="rounded-lg cursor-pointer w-full sm:w-auto px-8 py-3 bg-gray-700 text-white font-bold hover:bg-gray-800 transition-all shadow-lg">

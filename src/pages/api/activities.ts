@@ -1,7 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import activities from '@/data/activities.json';
-import fs from 'fs';
-import path from 'path';
+
 
 export default function handler(
     req: NextApiRequest,
@@ -38,25 +37,10 @@ export default function handler(
 
         const paginatedActivities = filteredActivities.slice(startIndex, endIndex);
 
-        // Get registered IDs
-        const registrationsFilePath = path.join(process.cwd(), 'src/data/registrations.json');
-        let registeredIds: number[] = [];
-        try {
-            if (fs.existsSync(registrationsFilePath)) {
-                const fileData = fs.readFileSync(registrationsFilePath, 'utf8');
-                registeredIds = JSON.parse(fileData);
-            }
-        } catch (error) {
-            console.error('Error reading registrations:', error);
-        }
 
-        const activitiesWithFlag = paginatedActivities.map(activity => ({
-            ...activity,
-            isRegistered: registeredIds.includes(activity.id)
-        }));
 
         res.status(200).json({
-            data: activitiesWithFlag,
+            data: paginatedActivities,
             meta: {
                 page,
                 limit,

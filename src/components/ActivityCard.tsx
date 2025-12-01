@@ -15,9 +15,10 @@ interface ActivityCardProps {
   isRegistered?: boolean;
   description?: string;
   gallery?: string[];
+  onCancel?: () => void;
 }
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRegisterEvent } from "@/hooks/useRegisterEvent";
 import ActivityDetailModal from "./ActivityDetailModal";
 
@@ -33,10 +34,15 @@ const ActivityCard = ({
   isRegistered = false,
   description,
   gallery,
+  onCancel,
 }: ActivityCardProps) => {
   const { registerEvent } = useRegisterEvent();
   const [registered, setRegistered] = useState(isRegistered);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    setRegistered(isRegistered);
+  }, [isRegistered]);
 
   const handleRegister = async () => {
     if (registered) return;
@@ -80,18 +86,25 @@ const ActivityCard = ({
           </div>
 
           <div className="grid grid-cols-2 gap-3 mt-auto">
-            {!registered && (
+            {!registered ? (
               <button
                 onClick={handleRegister}
                 className="cursor-pointer flex items-center justify-center rounded-lg bg-orange-500 px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-orange-600"
               >
                 ลงทะเบียน
               </button>
-            )}
+            ) : onCancel ? (
+              <button
+                onClick={onCancel}
+                className="cursor-pointer flex items-center justify-center rounded-lg bg-red-500 px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-red-600"
+              >
+                ยกเลิก
+              </button>
+            ) : null}
             <button
               onClick={() => setIsModalOpen(true)}
               className={`cursor-pointer flex items-center justify-center rounded-lg bg-gray-600 px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-gray-700 ${
-                registered ? "col-span-2" : ""
+                registered && !onCancel ? "col-span-2" : ""
               }`}
             >
               รายละเอียด

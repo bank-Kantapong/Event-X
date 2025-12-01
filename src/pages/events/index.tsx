@@ -65,7 +65,10 @@ const HASHTAGS = [
   "#การแข่งขัน",
 ];
 
+import { useRegistrationStore } from "@/store/useRegistrationStore";
+
 export default function EventList() {
+  const { registeredIds } = useRegistrationStore();
   const [activities, setActivities] = useState<Activity[]>([]);
   const [meta, setMeta] = useState<PaginationMeta | null>(null);
   const [search, setSearch] = useState("");
@@ -100,7 +103,12 @@ export default function EventList() {
       const response = await fetch(`/api/activities?${queryParams}`);
       if (response.ok) {
         const result = await response.json();
-        setActivities(result.data);
+        // Map isRegistered from store
+        const activitiesWithStatus = result.data.map((activity: Activity) => ({
+          ...activity,
+          isRegistered: registeredIds.includes(activity.id),
+        }));
+        setActivities(activitiesWithStatus);
         setMeta(result.meta);
       }
     } catch (error) {
@@ -108,7 +116,7 @@ export default function EventList() {
     } finally {
       setIsLoading(false);
     }
-  }, [page, selectedHashtag, debouncedSearch]);
+  }, [page, selectedHashtag, debouncedSearch, registeredIds]);
 
   // Fetch when dependencies change
   useEffect(() => {

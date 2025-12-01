@@ -4,9 +4,13 @@ import Navbar from "@/components/Navbar";
 import Head from "next/head";
 import HeroSection from "@/components/HeroSection";
 import PopularActivities from "@/components/PopularActivities";
+import { useNavigation, TABS } from "@/hooks/useNavigation";
+import EventListView from "@/components/views/EventListView";
+import MyEventsView from "@/components/views/MyEventsView";
 
 const Home = () => {
   const [mounted, setMounted] = useState(false);
+  const { activeMenu } = useNavigation();
 
   useEffect(() => {
     const timeout = setTimeout(() => setMounted(true), 0);
@@ -18,15 +22,21 @@ const Home = () => {
   return (
     <ContainerWrapper>
       <Head>
-        <title>Event X - หน้าแรก</title>
+        <title>Event X</title>
       </Head>
       <header>
         <Navbar />
       </header>
 
       <main className="flex-1">
-        <HeroSection />
-        <PopularActivities />
+        {activeMenu === TABS.HOME && (
+          <>
+            <HeroSection />
+            <PopularActivities />
+          </>
+        )}
+        {activeMenu === TABS.EVENT_LIST && <EventListView />}
+        {activeMenu === TABS.MY_EVENT && <MyEventsView />}
       </main>
 
       <footer className="py-8 text-center text-sm text-black border-t border-black mt-8">

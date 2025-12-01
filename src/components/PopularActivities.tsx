@@ -13,6 +13,7 @@ import charityImage from "@/assets/images/charity.jpg";
 import competitionImage from "@/assets/images/competition.jpg";
 import { useEffect, useState } from "react";
 import { StaticImageData } from "next/image";
+import { TABS, useNavigation } from "@/hooks/useNavigation";
 
 interface Activity {
   id: number;
@@ -42,6 +43,7 @@ const imageMap: Record<string, StaticImageData> = {
 
 const PopularActivities = () => {
   const [activities, setActivities] = useState<Activity[]>([]);
+  const { navigateToTab } = useNavigation();
 
   useEffect(() => {
     const fetchActivities = async () => {
@@ -76,7 +78,10 @@ const PopularActivities = () => {
           </div>
         </div>
         <div className="w-full md:w-auto flex justify-center md:block mt-4 md:mt-0">
-          <button className="flex flex-col items-center gap-2 group cursor-pointer">
+          <button
+            className="flex flex-col items-center gap-2 group cursor-pointer"
+            onClick={() => navigateToTab(TABS.EVENT_LIST)}
+          >
             <div className="w-14 h-14 rounded-full bg-white dark:bg-gray-800 shadow-lg flex items-center justify-center border border-gray-100 dark:border-gray-700 transition-transform group-hover:scale-110">
               <IconSvg
                 Icon={ArrowRightIcon}
