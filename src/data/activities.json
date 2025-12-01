@@ -1,0 +1,137 @@
+[
+  {
+    "id": 1,
+    "imageKey": "concert",
+    "title": "Big Mountain Music Festival",
+    "date": "10/12/2024",
+    "hashtag": "#ดนตรี",
+    "location": "เขาใหญ่",
+    "attendees": "50K"
+  },
+  {
+    "id": 2,
+    "imageKey": "running",
+    "title": "Bangkok Marathon 2024",
+    "date": "19/11/2024",
+    "hashtag": "#กีฬา",
+    "location": "กรุงเทพฯ",
+    "attendees": "30K"
+  },
+  {
+    "id": 3,
+    "imageKey": "fireworks",
+    "title": "Pattaya Fireworks Festival",
+    "date": "24/11/2024",
+    "hashtag": "#เทศกาล",
+    "location": "พัทยา",
+    "attendees": "100K"
+  },
+  {
+    "id": 4,
+    "imageKey": "art",
+    "title": "Art in the Park",
+    "date": "02/12/2024",
+    "hashtag": "#ศิลปะ",
+    "location": "สวนลุมพินี",
+    "attendees": "2.0K"
+  },
+  {
+    "id": 5,
+    "imageKey": "tech",
+    "title": "Tech Conference 2024",
+    "date": "15/12/2024",
+    "hashtag": "#เทคโนโลยี",
+    "location": "Bitec Bangna",
+    "attendees": "5.0K"
+  },
+  {
+    "id": 6,
+    "imageKey": "food",
+    "title": "Food Truck Carnival",
+    "date": "20/12/2024",
+    "hashtag": "#อาหาร",
+    "location": "Central World",
+    "attendees": "10K"
+  },
+  {
+    "id": 7,
+    "imageKey": "concert",
+    "title": "Jazz & Blues Night",
+    "date": "25/12/2024",
+    "hashtag": "#ดนตรี",
+    "location": "Saxophone Pub",
+    "attendees": "300"
+  },
+  {
+    "id": 8,
+    "imageKey": "charity",
+    "title": "Charity Fun Run",
+    "date": "01/01/2025",
+    "hashtag": "#การกุศล",
+    "location": "สวนจตุจักร",
+    "attendees": "1.5K"
+  },
+  {
+    "id": 9,
+    "imageKey": "fireworks",
+    "title": "Countdown 2025",
+    "date": "31/12/2024",
+    "hashtag": "#เทศกาล",
+    "location": "Icon Siam",
+    "attendees": "80K"
+  },
+  {
+    "id": 10,
+    "imageKey": "learning",
+    "title": "Workshop: Pottery Making",
+    "date": "14/01/2025",
+    "hashtag": "#การเรียนรู้",
+    "location": "Ari Creative Space",
+    "attendees": "20"
+  },
+  {
+    "id": 11,
+    "imageKey": "running",
+    "title": "Trail Running Khao Yai",
+    "date": "20/01/2025",
+    "hashtag": "#กีฬา",
+    "location": "เขาใหญ่",
+    "attendees": "2.0K"
+  },
+  {
+    "id": 12,
+    "imageKey": "culture",
+    "title": "Lantern Festival",
+    "date": "15/02/2025",
+    "hashtag": "#วัฒนธรรม",
+    "location": "เชียงใหม่",
+    "attendees": "15K"
+  },
+  {
+    "id": 13,
+    "imageKey": "concert",
+    "title": "Classical Symphony",
+    "date": "28/02/2025",
+    "hashtag": "#ดนตรี",
+    "location": "Thailand Cultural Centre",
+    "attendees": "1.2K"
+  },
+  {
+    "id": 14,
+    "imageKey": "competition",
+    "title": "Spartan Race Thailand",
+    "date": "10/03/2025",
+    "hashtag": "#การแข่งขัน",
+    "location": "Pattaya",
+    "attendees": "5.0K"
+  },
+  {
+    "id": 15,
+    "imageKey": "fireworks",
+    "title": "Songkran Water Festival",
+    "date": "13/04/2025",
+    "hashtag": "#เทศกาล",
+    "location": "Silom Road",
+    "attendees": "200K"
+  }
+]

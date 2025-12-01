@@ -7,6 +7,7 @@ import IconSvg from "@/components/IconSvg";
 import MenuIcon from "@/assets/menu.svg";
 import CloseIcon from "@/assets/close.svg";
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 
 enum TABS {
   HOME = "home",
@@ -30,12 +31,18 @@ const allTabs = [
 ];
 
 const Navbar = () => {
+  const router = useRouter();
   const { theme } = useTheme();
-  const [activeMenu, setActiveMenu] = useState<TABS>(TABS.HOME);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const onChangeMenu = (id: TABS) => {
-    setActiveMenu(id);
+  const activeMenu = (() => {
+    if (router.pathname === "/") return TABS.HOME;
+    if (router.pathname.startsWith("/events")) return TABS.EVENT_LIST;
+    if (router.pathname.startsWith("/dashboard")) return TABS.DASHBOARD;
+    return TABS.HOME;
+  })();
+
+  const onChangeMenu = () => {
     setIsMobileMenuOpen(false);
   };
 
@@ -45,7 +52,7 @@ const Navbar = () => {
     <nav className="w-full py-4 relative z-50">
       <div className="flex items-center justify-between">
         {/* Logo */}
-        <div className="flex-shrink-0">
+        <div className="shrink-0">
           <IconEventXFull width={101} height={60} />
         </div>
 
@@ -57,10 +64,10 @@ const Navbar = () => {
               <li
                 key={tab.id}
                 className="relative flex items-center justify-center cursor-pointer"
-                onClick={() => onChangeMenu(tab.id)}
+                onClick={() => onChangeMenu()}
               >
                 <a
-                  href="#"
+                  href={tab.id === TABS.HOME ? "/" : tab.id === TABS.EVENT_LIST ? "/events" : "#"}
                   className={`${
                     isActive ? "text-primary" : baseColor
                   } relative z-10 text-sm font-bold transition-all duration-300 hover:text-primary`}
@@ -108,9 +115,9 @@ const Navbar = () => {
             {allTabs.map((tab) => {
               const isActive = activeMenu === tab.id;
               return (
-                <li key={tab.id} className="flex items-center" onClick={() => onChangeMenu(tab.id)}>
+                <li key={tab.id} className="flex items-center" onClick={() => onChangeMenu()}>
                   <a
-                    href="#"
+                    href={tab.id === TABS.HOME ? "/" : tab.id === TABS.EVENT_LIST ? "/events" : "#"}
                     className={`${
                       isActive ? "text-primary" : baseColor
                     } text-lg font-bold transition-all duration-300 hover:text-primary w-full block py-2`}

@@ -4,47 +4,58 @@ import ArrowRightIcon from "@/assets/arrow-right.svg";
 import concertImage from "@/assets/images/concert.png";
 import runningImage from "@/assets/images/running.png";
 import fireworksImage from "@/assets/images/fireworks.png";
+import artImage from "@/assets/images/art.jpg";
+import foodImage from "@/assets/images/food.jpg";
+import techImage from "@/assets/images/tech.jpg";
+import learningImage from "@/assets/images/learning.jpg";
+import cultureImage from "@/assets/images/culture.jpg";
+import charityImage from "@/assets/images/charity.jpg";
+import competitionImage from "@/assets/images/competition.jpg";
+import { useEffect, useState } from "react";
+import { StaticImageData } from "next/image";
 
-const DUMMY_ACTIVITIES = [
-  {
-    id: 1,
-    image: concertImage,
-    title: "คอนเสิร์ตมันเล็กมา",
-    date: "24/11/2024",
-    hashtag: "#ดนตรี",
-    location: "เขาเขียว",
-    attendees: "2.5K",
-  },
-  {
-    id: 2,
-    image: runningImage,
-    title: "วิ่งเพื่อใคร",
-    date: "24/11/2024",
-    hashtag: "#กีฬา",
-    location: "สวนหลวง",
-    attendees: "2.5K",
-  },
-  {
-    id: 3,
-    image: fireworksImage,
-    title: "วิ่งวิบากกรรม",
-    date: "24/11/2024",
-    hashtag: "#กีฬา",
-    location: "เขาไกร",
-    attendees: "2.5K",
-  },
-  {
-    id: 4,
-    image: fireworksImage,
-    title: "ชมพลุปีใหม่",
-    date: "31/12/2024",
-    hashtag: "#เทศกาล",
-    location: "ไอคอนสยาม",
-    attendees: "2.5K",
-  },
-];
+interface Activity {
+  id: number;
+  imageKey: string;
+  title: string;
+  date: string;
+  hashtag: string;
+  location: string;
+  attendees: string;
+}
+
+const imageMap: Record<string, StaticImageData> = {
+  concert: concertImage,
+  running: runningImage,
+  fireworks: fireworksImage,
+  art: artImage,
+  food: foodImage,
+  tech: techImage,
+  learning: learningImage,
+  culture: cultureImage,
+  charity: charityImage,
+  competition: competitionImage,
+};
 
 const PopularActivities = () => {
+  const [activities, setActivities] = useState<Activity[]>([]);
+
+  useEffect(() => {
+    const fetchActivities = async () => {
+      try {
+        const response = await fetch("/api/activities?page=1&limit=5");
+        if (response.ok) {
+          const data = await response.json();
+          setActivities(data?.data);
+        }
+      } catch (error) {
+        console.error("Failed to fetch activities:", error);
+      }
+    };
+
+    fetchActivities();
+  }, []);
+
   return (
     <section className="py-12">
       <div className="flex items-center justify-between mb-4">
@@ -54,9 +65,9 @@ const PopularActivities = () => {
       <div className="flex flex-col md:flex-row items-center gap-6">
         <div className="w-full md:w-5/6 overflow-x-auto no-scrollbar py-4">
           <div className="flex gap-4 md:gap-6 pb-4 md:pb-8 px-4 md:px-1 scrollbar-hide snap-x snap-mandatory">
-            {DUMMY_ACTIVITIES.map((activity) => (
+            {activities?.map((activity) => (
               <div key={activity.id} className="snap-center md:snap-start">
-                <ActivityCard {...activity} />
+                <ActivityCard {...activity} image={imageMap[activity.imageKey] || concertImage} />
               </div>
             ))}
           </div>
